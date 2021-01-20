@@ -88,7 +88,9 @@ public class CatalogTest extends SimpleDbTestBase {
     @Test public void handleDuplicateIds() throws Exception {
     	String newName = SystemTestUtil.getUUID();
     	DbFile f = new SkeletonFile(id2, Utility.getTupleDesc(2));
-    	Database.getCatalog().addTable(f, newName);
+        Database.getCatalog().addTable(f, newName);
+        System.out.println(newName);
+        
     	assertEquals(newName, Database.getCatalog().getTableName(id2));
     	assertEquals(f, Database.getCatalog().getDatabaseFile(id2));
     }
